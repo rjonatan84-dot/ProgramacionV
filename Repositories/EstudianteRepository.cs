@@ -26,7 +26,12 @@ public class EstudianteRepository
           .Include(x => x.ProgramaAcademico)
           .FirstOrDefaultAsync(x => x.Id == id);
    }
- 
+  public async Task<Estudiante?> GetByCorreoAsync(string correo)
+{
+    return await _context.Estudiantes
+        .Include(x => x.ProgramaAcademico)
+        .FirstOrDefaultAsync(x => x.Correo == correo);
+}
   public async Task<Estudiante> CreateAsync(
       Estudiante estudiante)
    {
