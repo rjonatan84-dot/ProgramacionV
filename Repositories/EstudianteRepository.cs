@@ -36,7 +36,13 @@ public class EstudianteRepository
  
       return estudiante;
    }
- 
+   
+   public async Task<Estudiante?> GetByDocumentoAsync(string documento)
+{
+    return await _context.Estudiantes
+        .Include(x => x.ProgramaAcademico)
+        .FirstOrDefaultAsync(x => x.Documento == documento);
+}
   public async Task<bool> UpdateAsync(
       Estudiante estudiante)
    {
