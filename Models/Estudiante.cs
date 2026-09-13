@@ -11,6 +11,8 @@ public class Estudiante
   public string Correo { get; set; } = string.Empty;
  
   public int ProgramaAcademicoId { get; set; }
+
+  public string? Telefono { get; set; }
  
   public ProgramaAcademico? ProgramaAcademico { get; set; }
 }
